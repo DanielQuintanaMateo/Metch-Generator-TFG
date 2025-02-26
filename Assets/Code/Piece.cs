@@ -1,23 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using AYellowpaper.SerializedCollections;
 using UnityEngine;
-public abstract class Piece : MonoBehaviour
+public class Piece : MonoBehaviour
 {
     //Atributes
    #region public atributes
    
-   
+   [SerializedDictionary("Stat Name", "Value")] public SerializedDictionary<Stats, float> stats;
 
    #endregion
    
    
    #region private atributes
 
-   private string pieceName;
-   private PieceType pieceType;
-   private Stats stats;
-   private List<JoinPoint> joinPoints;
+   [SerializeField] private string pieceName;
+   [SerializeField] private PieceType pieceType;
+   [SerializeField] private List<JoinPoint> joinPoints;
    
    #endregion
    
@@ -48,7 +48,7 @@ public abstract class Piece : MonoBehaviour
 
    #region public methods
 
-   public Piece(string pieceName, PieceType pieceType, Stats stats)
+   public Piece(string pieceName, PieceType pieceType, SerializedDictionary<Stats, float> stats)
    {
        this.pieceName = pieceName;
        this.pieceType = pieceType;

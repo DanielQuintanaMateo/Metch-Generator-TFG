@@ -14,8 +14,7 @@ public class JoinPoint : MonoBehaviour
    
    #region private atributes
    
-   [SerializeField] private Piece[] compatiblePieces;
-   [SerializeField] private Transform joinTransform;
+   [SerializeField] private PieceType[] compatiblePieces;
    
    #endregion
    

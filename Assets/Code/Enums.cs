@@ -12,3 +12,11 @@ public enum PieceType
     Head,
     Torso
 }
+
+public enum Stats
+{
+    Health,
+    Attack,
+    Defence,
+    Speed
+}
