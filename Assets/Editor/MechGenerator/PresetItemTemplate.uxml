@@ -1,0 +1,6 @@
+<UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="preset-item" class="preset-item">
+        <ui:Label name="preset-name" text="Nombre Preset" class="preset-name" />
+        <ui:Button name="load-preset-button" text="Cargar" class="load-preset-button" />
+    </ui:VisualElement>
+</UXML>

@@ -1,0 +1,94 @@
+<UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="root-container" class="root-container">
+        <!-- Panel Izquierdo - Parámetros -->
+        <ui:VisualElement name="left-panel" class="left-panel">
+            <ui:Label text="Generador de Mechs" class="panel-title" />
+            
+            <!-- Seed Control -->
+            <ui:VisualElement name="seed-container" class="seed-container">
+                <ui:SliderInt name="seed-slider" label="Seed" high-value="999999" low-value="0" value="12345" />
+                <ui:Toggle name="lock-seed-toggle" label="🔒" />
+            </ui:VisualElement>
+            
+            <!-- Pestañas de configuración -->
+            <ui:VisualElement name="tabs-container">
+                <ui:VisualElement name="tab-buttons" style="flex-direction: row;">
+                    <ui:Button text="Estructura" name="structure-tab" class="tab-button tab-button--selected" />
+                </ui:VisualElement>
+                
+                <ui:VisualElement name="parameters-content" class="tab-content">
+                    <!-- Secciones de Parámetros -->
+                    <ui:Foldout text="Cabeza" name="head-section" class="parameter-section collapsible-section" value="true" />
+                    <ui:Foldout text="Torso" name="torso-section" class="parameter-section collapsible-section" value="true" />
+                    <ui:Foldout text="Brazos" name="arms-section" class="parameter-section collapsible-section" value="true" />
+                    <ui:Foldout text="Piernas" name="legs-section" class="parameter-section collapsible-section" value="true" />
+                    <ui:Foldout text="Armas" name="weapons-section" class="parameter-section collapsible-section" value="true" />
+                    <ui:Foldout text="Colores y Materiales" name="colors-section" class="parameter-section collapsible-section" value="true" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            
+            <!-- Botones de Control -->
+            <ui:Button text="GENERAR MECH" name="generate-button" class="generate-button" />
+            <ui:Button text="Aleatorizar" name="randomize-button" class="randomize-button" />
+            <ui:Button text="Guardar Preset" name="save-preset-button" class="save-preset-button" />
+        </ui:VisualElement>
+        
+        <!-- Panel Central - Visualización -->
+        <ui:VisualElement name="center-panel" class="center-panel">
+            <ui:Label text="Vista Previa" class="panel-title" />
+            
+            <ui:VisualElement name="toolbar" class="toolbar">
+                <ui:Button name="rotate-left-button" text="↺" class="toolbar-button" />
+                <ui:Button name="rotate-right-button" text="↻" class="toolbar-button" />
+                <ui:Button name="zoom-in-button" text="+" class="toolbar-button" />
+                <ui:Button name="zoom-out-button" text="-" class="toolbar-button" />
+                <ui:Button name="reset-view-button" text="⟲" class="toolbar-button" />
+                <ui:Button name="screenshot-button" text="📷" class="toolbar-button" />
+            </ui:VisualElement>
+            
+            <ui:VisualElement name="preview-container" class="preview-container">
+                <!-- Aquí se mostrará el modelo 3D -->
+            </ui:VisualElement>
+            
+            <ui:VisualElement name="controls-container" class="controls-container">
+                <ui:Label text="Clic y arrastra para rotar. Rueda para zoom." class="tech-details" />
+                <ui:Slider name="animation-speed-slider" label="Velocidad Animación" low-value="0" high-value="2" value="1" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        
+        <!-- Panel Derecho - Presets y Detalles -->
+        <ui:VisualElement name="right-panel" class="right-panel">
+            <ui:Label text="Presets Guardados" class="panel-title" />
+            
+            <ui:VisualElement name="presets-container" class="presets-container">
+                <!-- Los presets se agregarán mediante código -->
+            </ui:VisualElement>
+            
+            <ui:Label text="Especificaciones Técnicas" class="panel-title" style="margin-top: 20px;" />
+            
+            <ui:Label text="Peso:" class="specs-label" />
+            <ui:Label text="72.5 toneladas" class="specs-value" />
+            
+            <ui:Label text="Velocidad:" class="specs-label" />
+            <ui:Label text="45 km/h" class="specs-value" />
+            
+            <ui:Label text="Blindaje:" class="specs-label" />
+            <ui:Label text="Nivel 4 - Titanio reforzado" class="specs-value" />
+            
+            <ui:Label text="Potencia:" class="specs-label" />
+            <ui:Label text="15.000 kW" class="specs-value" />
+            
+            <ui:Label text="Armamento:" class="specs-label" />
+            <ui:Label text="Cañón de Plasma + Lanzamisiles" class="specs-value" />
+            
+            <ui:Label text="Clase:" class="specs-label" />
+            <ui:Label text="Asalto Pesado" class="specs-value" />
+            
+            <ui:Label text="Especialidad:" class="specs-label" />
+            <ui:Label text="Combate frontal y supresión" class="specs-value" />
+            
+            <ui:Label text="Notas:" class="specs-label" />
+            <ui:TextField name="notes-field" multiline="true" class="specs-value" style="height: 80px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</UXML>
