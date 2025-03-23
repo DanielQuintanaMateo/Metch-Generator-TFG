@@ -1,59 +1,53 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using AYellowpaper.SerializedCollections;
+using Unity.VisualScripting;
 using UnityEngine;
-public class Piece : MonoBehaviour
+
+[CreateAssetMenu(fileName = "New Mech Piece", menuName = "Mech/Piece", order = 1)]
+public class Piece : ScriptableObject
 {
-    //Atributes
-   #region public atributes
-   
-   [SerializedDictionary("Stat Name", "Value")] public SerializedDictionary<Stats, float> stats;
+    #region Public Attributes
 
-   #endregion
-   
-   
-   #region private atributes
+    [Header("Identification")]
+    [ReadOnly] public string pieceName;
+    public PieceType pieceType;
 
-   [SerializeField] private string pieceName;
-   [SerializeField] private PieceType pieceType;
-   [SerializeField] private List<JoinPoint> joinPoints;
-   
-   #endregion
-   
-   //Unity Methods
-   #region Unity methods
-   
-   private void Awake()
-   {
-      
-   }
+    [SerializedDictionary("Stat Name", "Value")] public SerializedDictionary<Stats, float> stats;
 
-   void Start()
-   {
-        
-   }
+    [Header("Visual and Prefabs")]
+    public GameObject prefab;
 
-   void Update()
-   {
-        
-   }
-   
-   #endregion
-   
-   //My Methods
-   #region private methods
-   
-   #endregion
+    [Header("Join Parameters")]
+    public List<JoinPoint> joinPoints;
 
-   #region public methods
+    #endregion
 
-   public Piece(string pieceName, PieceType pieceType, SerializedDictionary<Stats, float> stats)
-   {
-       this.pieceName = pieceName;
-       this.pieceType = pieceType;
-       this.stats = stats;
-   }
-   
-   #endregion
+    #region Unity Methods
+
+    private void Awake()
+    {
+        // Assign this piece as owner to all join points.
+        foreach (var join in joinPoints)
+        {
+            if (join != null)
+            {
+                join.ownerPiece = this;
+            }
+        }
+    }
+
+    #endregion
+
+    #region Public Methods
+
+    /// <summary>
+    /// Returns the join point with the specified ID from the stored joinPoints.
+    /// </summary>
+    public JoinPoint GetJoinByID(string id)
+    {
+        return joinPoints.FirstOrDefault(j => j.id == id);
+    }
+
+    #endregion
 }

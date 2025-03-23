@@ -15,7 +15,7 @@ public class Mech : MonoBehaviour
    
    #region private atributes
    
-   private List<Piece> pieces;
+   private MechNode mainNode;
    private Dictionary<PieceType, float> stats;
    
    #endregion
@@ -47,10 +47,9 @@ public class Mech : MonoBehaviour
 
    #region public methods
 
-   public Mech(List<Piece> pieces, Dictionary<PieceType, float> stats)
+   public Mech(MechNode mainNode)
    {
-       this.pieces = pieces;
-       this.stats = stats;
+       this.mainNode = mainNode;
    }
    
    #endregion

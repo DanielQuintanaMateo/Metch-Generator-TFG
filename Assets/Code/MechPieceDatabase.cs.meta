@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 9987a1ec3e6aeba429ed2e65892bbf75
+guid: cbaf32603ee3f1b498aa5a40e4fbdfc8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - mechPieceDatabase: {fileID: 11400000, guid: b610e5e26dff2624695fbe7fcc029f8a, type: 2}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
